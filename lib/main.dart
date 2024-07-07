@@ -19,7 +19,7 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             tooltip: 'Notifications',
           ),
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: const Icon(Icons.more_vert),
             onPressed: () {
               // Handle settings icon press
               print('Settings icon pressed');
@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey.shade200, // 배경색을 옅은 회색으로 설정
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
@@ -95,8 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: const Color.fromARGB(255, 84, 85, 85),
+        unselectedItemColor: const Color.fromARGB(255, 201, 201, 201),
         showUnselectedLabels: true,
         onTap: _onItemTapped,
       ),
@@ -127,7 +127,7 @@ class HomeBody extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
               side: const BorderSide(
-                color: Colors.grey,
+                color: Color.fromARGB(255, 233, 233, 233),
                 width: 1,
               ),
             ),
@@ -154,9 +154,9 @@ class HomeBody extends StatelessWidget {
                             Text(
                               '거창파크골프장(제6구장) $index',
                               style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Roboto', // Roboto 폰트 적용
+                                fontFamily: 'NanumSquare', // Roboto 폰트 적용
                               ),
                             ),
                             const SizedBox(height: 5),
@@ -164,7 +164,7 @@ class HomeBody extends StatelessWidget {
                               '경상남도 거창군 가조면 일부리 1121-1 $index.',
                               style: const TextStyle(
                                 fontSize: 16,
-                                fontFamily: 'Roboto', // Roboto 폰트 적용
+                                fontFamily: 'NanumSquare', // Roboto 폰트 적용
                               ),
                             ),
                           ],
