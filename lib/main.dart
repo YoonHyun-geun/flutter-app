@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const FlutterApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class FlutterApp extends StatelessWidget {
+  const FlutterApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeBody(),
     MyReviewsPage(),
     MyStatsPage(),
+    SearchPage(),
     MyProfilePage(),
   ];
 
@@ -87,7 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.bar_chart),
-            label: '기록',
+            label: '스코어',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: '검색',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -125,7 +130,7 @@ class HomeBody extends StatelessWidget {
           child: Card(
             color: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(5),
               side: const BorderSide(
                 color: Color.fromARGB(255, 233, 233, 233),
                 width: 1,
@@ -140,11 +145,15 @@ class HomeBody extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.network(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTtVUJDc4_gr8AZk2JsFijSFp4TH1Ed4BC3e8dPIJ1zmW2sA2W4ZMFXA_JGw&s', // 이미지 URL을 적절히 변경하세요
-                        fit: BoxFit.cover,
-                        width: 100,
-                        height: 100,
+                      ClipRRect(
+                        borderRadius:
+                            BorderRadius.circular(5), // 이미지에 둥근 모서리 적용
+                        child: Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTtVUJDc4_gr8AZk2JsFijSFp4TH1Ed4BC3e8dPIJ1zmW2sA2W4ZMFXA_JGw&s', // 이미지 URL을 적절히 변경하세요
+                          fit: BoxFit.cover,
+                          width: 100,
+                          height: 100,
+                        ),
                       ),
                       const SizedBox(width: 10),
                       Expanded(
@@ -235,6 +244,20 @@ class MyStatsPage extends StatelessWidget {
     return const Center(
       child: Text(
         'Statistics Page',
+        style: TextStyle(fontSize: 24),
+      ),
+    );
+  }
+}
+
+class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        'Search Page',
         style: TextStyle(fontSize: 24),
       ),
     );

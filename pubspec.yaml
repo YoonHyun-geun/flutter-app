@@ -78,8 +78,8 @@ flutter:
   fonts:
     - family: NanumSquare
       fonts:
-        - asset: fonts/NanumSquareB.ttf
-        - asset: fonts/NanumSquareR.ttf
+        - asset: assets/fonts/NanumSquareB.ttf
+        - asset: assets/fonts/NanumSquareR.ttf
           weight: 700
     
 
